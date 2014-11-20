@@ -20,6 +20,7 @@ public class Juego {
     }
     
     public void Evaluar(){
+        int resta=0;
     for(int contador=0;contador!=numint;contador++){
             do{
             String respuesta3 =JOptionPane.showInputDialog("Juega tu numero entre 1 y 50:");
@@ -29,17 +30,25 @@ public class Juego {
                 perdedor=false;
                 JOptionPane.showMessageDialog(null, " ENHORABUENA!!!! \n HAS ACERTADO!!");
                 contador=numint-1;
-            }else if(jug2>jug1 && numint!=(contador+1)){
-                JOptionPane.showMessageDialog(null,"El número es menor \n Te quedan " +((numint-contador)-1)+ " intentos...");
-            }else {
-                if(numint!=(contador+1)){
-                JOptionPane.showMessageDialog(null, "El número es mayor \n Te quedan " +((numint-contador)-1)+ " intentos..." );
+                break;
+            }else{
+                
+                resta = Math.abs(jug1-jug2);
+                
+                if(resta>20 &&numint!=(contador+1)){
+                JOptionPane.showMessageDialog(null,"El número está muy lejos \n Te quedan " +((numint-contador)-1)+ " intentos...");
+                }else if(resta<=20&&resta>=10 && numint!=(contador+1)){
+                JOptionPane.showMessageDialog(null, "El número está lejos \n Te quedan " +((numint-contador)-1)+ " intentos..." );
+                }else if(resta<10&&resta>=5 && numint!=(contador+1)){
+                    JOptionPane.showMessageDialog(null, "El número está cerca \n Te quedan " +((numint-contador)-1)+ " intentos..." );
+                }else if(resta<5 && numint!=(contador+1)){
+                JOptionPane.showMessageDialog(null, "El número está muy cerca \n Te quedan " +((numint-contador)-1)+ " intentos..." );
                 }
             }
             }
             
         if (perdedor==true){
-        JOptionPane.showMessageDialog(null, "    Has perdido!!!! \n LASTIMAAAAA...!!!");
+        JOptionPane.showMessageDialog(null, "    Has perdido!!!! \n EL número era el " +jug1+ "\n LASTIMAAAAA...!!!");
         }
     }
     
