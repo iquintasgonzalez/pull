@@ -11,11 +11,15 @@ public class alumno {
          
      }
      public alumno(String nome,int nota){
-         
+         this.nome=nome;
+         this.nota=nota;
      }
-             
+     public void darValores(String nome,int nota){
+         this.nome=nome;
+         this.nota=nota;
+    }
     @Override
-        public String toString(){
+    public String toString(){
         return("nome:   "+ nome+ "nota=  " +nota);
         
        }
@@ -52,7 +56,7 @@ public class alumno {
         float nota2=lerNota();
         int bole=lerBoletin();
         return (int) (nota1*0.4+nota2+bole);
-        
+        //return (int) (lerNota()*0.4+lerNota()*0.4+lerBoletin() );
     }
             
     }
