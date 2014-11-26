@@ -20,7 +20,7 @@ public class alumno {
     }
     @Override
     public String toString(){
-        return("nome:   "+ nome+ "nota=  " +nota);
+        return("nome: " + nome  + "nota =  "  +   nota);
         
        }
     public String lerNome(){
@@ -40,14 +40,14 @@ public class alumno {
     public int  lerBoletin(){
        float boTotais= Float.parseFloat(JOptionPane.showInputDialog("introduce numero"));
        float boFeitos= Float.parseFloat(JOptionPane.showInputDialog("Feitos"));
-       float resul=(float)boTotais/boFeitos*100;
+       float resul=(float)boFeitos/boTotais*100;
        if(resul>=90)
            resul=2;
        else if (resul >=70 && resul <90)
            resul=1;
        else 
-           resul=resul;
-        return (int) boFeitos;
+           resul=0;
+        return (int) resul;
         
        
     }
@@ -55,7 +55,7 @@ public class alumno {
         float nota1=lerNota();
         float nota2=lerNota();
         int bole=lerBoletin();
-        return (int) (nota1*0.4+nota2+bole);
+        return (int) (nota1*0.4+nota2*0.4+bole);
         //return (int) (lerNota()*0.4+lerNota()*0.4+lerBoletin() );
     }
             
